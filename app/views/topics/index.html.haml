@@ -1,0 +1,24 @@
+.container
+  -if @topics.empty?
+    %span.text-warning There are no topics!
+  -else
+    %table.table.table-hover.table-bordered
+      %tr
+        %th Topics
+        %th Sections
+        %th Edit
+        %th Destroy
+      %tbody
+        -@topics.each do |topic|
+          %tr
+            %td
+              = topic.name
+            %td
+              = link_to 'Sections', topic
+            %td
+              = link_to 'Edit', edit_topic_path(topic)
+            %td
+              =link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }
+
+.text-center
+  = link_to 'New Topic', new_topic_path, class: 'btn btn-primary'
