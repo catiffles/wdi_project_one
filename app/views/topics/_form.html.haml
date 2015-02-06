@@ -1,6 +1,7 @@
-= form_for @topic do |f|
-  = f.label :name
-  = f.text_field :name
-  %br
-  = f.submit 
-  =link_to 'Back', topics_path, class: 'btn btn-primary'
+.text-center
+  = form_for @topic do |f|
+    = f.label :name
+    = f.text_field :name
+    %br
+    = f.submit 
+    =link_to 'Back', topics_path, class: 'btn btn-primary'

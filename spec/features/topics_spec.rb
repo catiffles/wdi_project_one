@@ -38,5 +38,12 @@ RSpec.feature 'Managing topics' do
 
     expect(page).to have_content('Cats')
   end
-  
+
+  scenario 'Delete a topic' do
+    topic = Topic.create!(name: 'Cows')
+
+    visit "topics"
+    click_on 'Destroy'
+
+  end
 end

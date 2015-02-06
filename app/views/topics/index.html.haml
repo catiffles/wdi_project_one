@@ -18,7 +18,7 @@
             %td
               = link_to 'Edit', edit_topic_path(topic)
             %td
-              =link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }
 
 .text-center
   = link_to 'New Topic', new_topic_path, class: 'btn btn-primary'

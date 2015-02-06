@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :topics
+  shallow do
+    resources :topics do
+      resources :sections
+    end
+  end
 
   root to: 'topics#home'
   # The priority is based upon order of creation: first created -> highest priority.
