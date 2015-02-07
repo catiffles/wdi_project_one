@@ -1,0 +1,12 @@
+.text-center
+  %p#notice= notice
+  %p
+    %h1
+      = @topic.name
+      \:
+      = @section.name 
+  = link_to 'Edit', edit_topic_path(@topic)
+  |
+  \#{link_to 'Back', topics_path}
+  %br
+  %br

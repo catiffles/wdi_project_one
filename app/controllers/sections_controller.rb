@@ -2,6 +2,7 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
+    @topic = @section.topic
   end
 
   def create
@@ -23,16 +24,16 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     if @section.update(section_params)
       @topic = @section.topic
-      redirect_to topic_path(topic)
+      redirect_to topic_path(@topic)
     else
       render :edit
     end
   end
 
   def destroy
-    @topic = Topic.find(params[:topic_id])
-    @section = @topic.sections.find(params[:id])
+    @section = Section.find(params[:id])
     @section.destroy
+    @topic = @section.topic
     redirect_to topic_path(@topic)
   end
 
