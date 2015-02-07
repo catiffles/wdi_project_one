@@ -1,0 +1,6 @@
+%p
+  = form_for([@topic, @section]) do |f|
+    %p
+      = f.label :section_name
+      = f.text_field :name, autofocus: true
+      = f.submit 'Save', class: 'btn btn-primary'
