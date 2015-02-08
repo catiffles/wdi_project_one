@@ -7,11 +7,11 @@ RSpec.describe Section do
     end
 
     it 'is invalid without a name' do
-      expect(Comment.create(body: '')).not_to be_valid
+      expect(Section.create(name: '')).not_to be_valid
     end
 
     it 'is valid with a name' do
-      expect(Comment.create(body: 'Sheep go Meep')).to be_valid
+      expect(Section.create(name: 'Sheep go Meep')).to be_valid
     end
   end
 end

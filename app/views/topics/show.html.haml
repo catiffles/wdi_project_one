@@ -8,20 +8,5 @@
   \#{link_to 'Back', topics_path}
   %br
   %br
-.container
-  %table.table.table-hover.table-bordered
-    %tr
-      %th Section Name
-      %th Edit
-      %th Destroy
-    %tbody
-      -@sections.each do |section|
-        %tr
-          %td
-            = link_to section.name, section
-          %td 
-            = link_to 'Edit', edit_section_path(section)
-          %td
-            = link_to 'Destroy Section', [section], method: :delete, data: { confirm: 'Are you sure?' }
-.text-center
+  = render @topic.sections
   = render 'sections/form'

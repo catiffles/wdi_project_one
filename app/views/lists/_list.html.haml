@@ -1,0 +1,6 @@
+%p
+  = link_to list.name, list
+  |
+  = link_to 'Edit', edit_list_path(list)
+  |
+  = link_to 'Destroy List', list, method: :delete, data: { confirm: 'Are you sure?' }
