@@ -1,0 +1,12 @@
+%p
+  = phrase.english
+  |
+  = link_to phrase.traditional, phrase
+  |
+  = phrase.simplified
+  |
+  = phrase.pinyin
+  |
+  = link_to 'Edit', edit_phrase_path(phrase)
+  |
+  = link_to 'Destroy Phrase', phrase, method: :delete, data: { confirm: 'Are you sure?' }
