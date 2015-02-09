@@ -1,8 +1,9 @@
 class SectionsController < ApplicationController
+  before_action :set_section, only: [:show, :edit, :update, :destroy]
 
   def show
-    @section = Section.find(params[:id])
     @topic = @section.topic
+    @list = List.new(section_id: @section)
   end
 
   def create
@@ -17,12 +18,10 @@ class SectionsController < ApplicationController
   end
 
   def edit
-    @section = Section.find(params[:id])
   end
 
   def update
-    @section = Section.find(params[:id])
-    if @section.update(section_params)
+    if @section.update_attributes(section_params)
       @topic = @section.topic
       redirect_to topic_path(@topic)
     else
@@ -31,13 +30,16 @@ class SectionsController < ApplicationController
   end
 
   def destroy
-    @section = Section.find(params[:id])
     @section.destroy
     @topic = @section.topic
     redirect_to topic_path(@topic)
   end
 
   private
+
+  def set_section
+    @section = Section.find(params[:id])
+  end
 
   def section_params
     params.require(:section).permit(:name)

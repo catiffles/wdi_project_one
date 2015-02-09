@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   shallow do
     resources :topics do
       resources :sections do
-        resources :lists
+        resources :lists do
+          resources :phrases
+        end
       end
     end
   end
