@@ -3,7 +3,6 @@ class CreatePhrases < ActiveRecord::Migration
     create_table :phrases do |t|
       t.string :english
       t.string :traditional
-      t.string :simplified
       t.string :pinyin
       t.belongs_to :list, index: true
 

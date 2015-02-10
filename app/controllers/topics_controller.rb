@@ -9,7 +9,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @section = Section.new(topic: @topic)
+    @section = Section.new(topic_id: @topic)
+    @sections = @topic.sections
   end
 
   def create

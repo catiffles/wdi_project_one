@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20150208220207) do
   create_table "phrases", force: :cascade do |t|
     t.string   "english"
     t.string   "traditional"
-    t.string   "simplified"
     t.string   "pinyin"
     t.integer  "list_id"
     t.datetime "created_at",  null: false
