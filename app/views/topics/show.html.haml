@@ -1,5 +1,4 @@
 .text-center
-  %p#notice= notice
   %p
     %strong 
       = @topic.name 
@@ -8,5 +7,12 @@
   \#{link_to 'Back', topics_path}
   %br
   %br
-  = render @topic.sections
+  %table.table.table-hover.table-bordered
+    %tr
+      %th Sections
+      %th Edit
+      %th Destroy
+    %tbody
+      -@sections.each do |section|
+        = render @topic.sections
   = render 'sections/form'

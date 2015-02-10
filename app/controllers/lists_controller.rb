@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @phrase = Phrase.new(list: @list)
+    @phrases = @list.phrases
   end
 
   def create

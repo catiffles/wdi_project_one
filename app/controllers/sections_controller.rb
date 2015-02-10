@@ -4,6 +4,8 @@ class SectionsController < ApplicationController
   def show
     @topic = @section.topic
     @list = List.new(section_id: @section)
+    @section = Section.find(params[:id])
+    @lists = @section.lists
   end
 
   def create

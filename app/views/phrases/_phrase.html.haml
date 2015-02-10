@@ -1,10 +1,20 @@
-%p
-  = phrase.english
-  |
-  = link_to phrase.traditional, phrase
-  |
-  = phrase.pinyin
-  |
-  = link_to 'Edit', edit_phrase_path(phrase)
-  |
-  = link_to 'Destroy Phrase', phrase, method: :delete, data: { confirm: 'Are you sure?' }
+%table.table.table-hover.table-bordered
+  %tr
+    %th Phrase
+    %th Translation
+    %th Pinyin
+    %th Edit
+    %th Destroy
+  %tbody
+    -@phrases.each do |phrase|
+      %tr
+        %td
+          = phrase.english
+        %td
+          = link_to phrase.traditional, phrase
+        %td 
+          = phrase.pinyin
+        %td
+          = link_to 'Edit', edit_phrase_path(phrase)
+        %td
+          = link_to 'Destroy', phrase, method: :delete, data: { confirm: 'Are you sure?' }

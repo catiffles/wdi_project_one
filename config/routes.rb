@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   shallow do
     resources :topics do
       resources :sections do

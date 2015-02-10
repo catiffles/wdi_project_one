@@ -1,6 +1,7 @@
-%p
-  = link_to section.name, section
-  |
-  = link_to 'Edit', edit_section_path(section)
-  |
-  = link_to 'Destroy Section', section, method: :delete, data: { confirm: 'Are you sure?' }
+%tr
+  %td
+    = link_to section.name, section
+  %td
+    = link_to 'Edit', edit_section_path(section)
+  %td
+    = link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' }
