@@ -227,7 +227,7 @@ Phrase.create!(english: 'Look at the letter \'E\'.', traditional: '看著\'E\'�
 Phrase.create!(english: 'Do not look at my light.', traditional: '別看我的燈。', pinyin: 'bié kàn wǒ de dēng', list: preliminaries)
 Phrase.create!(english: 'Keep both eyes open.', traditional: '請把雙眼都打開。', pinyin: 'qǐng bǎ shuāng yǎn dōu dǎ kāi', list: preliminaries)
 Phrase.create!(english: 'Read the smallest line of letters you can see.', traditional: '請閱讀你能看到的最小行字。', pinyin: 'qǐng yuè dú nǐ néng kàn dào de zuì xiǎo xíng zì', list: preliminaries)
-Phrase.create!(english: 'Which is better, one or two?', traditional: '哪一個比較好、一還昰二?', pinyin: 'nǎ yī gè bǐ jiào hǎo   yī huán shì èr', list: preliminaries)
+Phrase.create!(english: 'Which is better, one or two?', traditional: '哪一個比較好、一還昰二?', pinyin: 'nǎ yī gè bǐ jiào hǎo   yī hái shì èr', list: preliminaries)
 Phrase.create!(english: 'Looking only at the top line, which is better, one or two?', traditional: '只看著最高一行、哪一個比較好丶一還是二?', pinyin: 'zhǐ kàn zhe zuì gāo yī háng   nǎ yī gè bǐ jiào hǎo zhǔ yī hái shì èr', list: preliminaries)
 Phrase.create!(english: 'Looking only at the bottom one, which is better, one or two?', traditional: '只看著最底一個丶哪一個比較好丶一還是二?', pinyin: 'zhǐ kàn zhe zuì dǐ yī gè zhǔ nǎ yī gè bǐ jiào hǎo zhǔ yī hái shì èr', list: preliminaries)
 Phrase.create!(english: 'Which group of lines are darker, the vertical or horizontal ones?', traditional: '哪一堆線比較黑，竪子還是橫向？', pinyin: 'nǎ yī duī xiàn bǐ jiào hēi   shù zi hái shì héng xiàng', list: preliminaries)

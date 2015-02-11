@@ -38,7 +38,7 @@ RSpec.describe SectionsController do
         { name: 'Cats go meow' }
       }
 
-      it 'updates the requested sectioin' do
+      it 'updates the requested section' do
         topic = Topic.create!(name: 'Animals')
         section = Section.create!(name: 'Cows', topic_id: topic)
         patch :update, topic_id: topic, id: section, section: new_attributes
@@ -55,7 +55,7 @@ RSpec.describe SectionsController do
     end
 
     context 'with invalid attributes' do
-      it 'assigns @comment' do
+      it 'assigns @section' do
         topic = Topic.create!(name: 'Animals')
         section = Section.create!(name: 'Cows', topic_id: topic)
         patch :update, topic_id: topic, id: section, section: invalid_attributes

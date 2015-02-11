@@ -1,10 +1,8 @@
 .text-center
   %p
     %h1
-      = @topic.name
-      \:
       = @section.name
-  = link_to 'Back', topics_path
+  = link_to 'Back', topic_path(@topic)
   %br
   %br
 

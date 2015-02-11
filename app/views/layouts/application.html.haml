@@ -15,8 +15,9 @@
           Topics
           %span.caret
         %ul.dropdown-menu{:role => "menu"}
-          %li
-            = Topic.all
+          - Topic.all.each do |topic|
+            %li
+              = link_to topic.name, topic
       .pull-right
         - if user_signed_in?
           Logged in as
@@ -39,11 +40,10 @@
           %h3
             Translations for your practice
 
-  %br
-
 .text-center
   - if notice
     %p.alert.alert-success= notice
   - if alert
     %p.alert.alert-danger= alert
+
   = yield
