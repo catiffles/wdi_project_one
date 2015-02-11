@@ -4,5 +4,25 @@
       = @list.name
   %br
   %br
-  = render @list.phrases
-  = render 'phrases/form'
+.container
+  %table.table.table-hover.table-bordered
+    %tr
+      %th Phrase
+      %th Translation
+      %th Pinyin
+      %th Edit
+      %th Destroy
+    %tbody
+      -@phrases.each do |phrase|
+        %tr
+          %td
+            = phrase.english
+          %td
+            = link_to phrase.traditional, phrase
+          %td
+            = phrase.pinyin
+          %td
+            = link_to 'Edit', edit_phrase_path(phrase)
+          %td
+            = link_to 'Destroy', phrase, method: :delete, data: { confirm: 'Are you sure?' }
+= render 'phrases/form'

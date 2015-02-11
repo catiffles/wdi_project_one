@@ -1,12 +1,13 @@
 .text-center
   %p
-    %strong 
-      = @topic.name 
+    %strong
+      = @topic.name
   = link_to 'Edit', edit_topic_path(@topic)
   |
   \#{link_to 'Back', topics_path}
   %br
   %br
+.container
   %table.table.table-hover.table-bordered
     %tr
       %th Sections
@@ -14,5 +15,12 @@
       %th Destroy
     %tbody
       -@sections.each do |section|
-        = render @topic.sections
-  = render 'sections/form'
+        %tr
+          %td
+            = link_to section.name, section
+          %td
+            = link_to 'Edit', edit_section_path(section)
+          %td
+            = link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' }
+
+= render 'sections/form'
