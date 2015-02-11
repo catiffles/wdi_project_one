@@ -14,7 +14,7 @@ RSpec.describe SectionsController do
       topic = Topic.create!(name: 'Animals')
       section = Section.create!(name: 'Cows', topic_id: topic)
       get :edit, topic_id: topic, id: section
-      expect(response.status).to eq 200
+      expect(response.status).to eq 302
     end
 
     it 'renders the edit template' do
