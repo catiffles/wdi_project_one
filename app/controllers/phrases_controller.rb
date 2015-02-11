@@ -12,7 +12,7 @@ class PhrasesController < ApplicationController
         redirect_to list_path(@list)
       else
         flash[:notice] = "Invalid without an English phrase"
-        redirect_to :back
+        redirect_to phrase_path(@phrase)
       end
   end
 
@@ -33,7 +33,8 @@ class PhrasesController < ApplicationController
   def destroy
     @phrase = Phrase.find(params[:id])
     @phrase.destroy
-    redirect_to :back
+    @list = @phrase.list
+    redirect_to list_path(@list)
   end
 
   private

@@ -18,6 +18,22 @@
           - Topic.all.each do |topic|
             %li
               = link_to topic.name, topic
+      %li.dropdown{:role => "presentation"}
+        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => '#', :role => "button"}
+          Sections
+          %span.caret
+        %ul.dropdown-menu{:role => "menu"}
+          - Section.all.each do |section|
+            %li
+              = link_to section.name, section
+      %li.dropdown{:role => "presentation"}
+        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => '#', :role => "button"}
+          Lists
+          %span.caret
+        %ul.dropdown-menu{:role => "menu"}
+          - List.all.each do |list|
+            %li
+              = link_to list.name, list
       .pull-right
         - if user_signed_in?
           Logged in as
