@@ -6,55 +6,14 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-  %ul
-    .nav.nav-tabs
-      %li
-        = link_to 'Home', topics_path
-      %li.dropdown{:role => "presentation"}
-        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => '#', :role => "button"}
-          Topics
-          %span.caret
-        %ul.dropdown-menu{:role => "menu"}
-          - Topic.all.each do |topic|
-            %li
-              = link_to topic.name, topic
-      %li.dropdown{:role => "presentation"}
-        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => '#', :role => "button"}
-          Sections
-          %span.caret
-        %ul.dropdown-menu{:role => "menu"}
-          - Section.all.each do |section|
-            %li
-              = link_to section.name, section
-      %li.dropdown{:role => "presentation"}
-        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => '#', :role => "button"}
-          Lists
-          %span.caret
-        %ul.dropdown-menu{:role => "menu"}
-          - List.all.each do |list|
-            %li
-              = link_to list.name, list
-      .pull-right
-        - if user_signed_in?
-          Logged in as
-          = succeed "." do
-            %strong= current_user.email
-          = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
-          |
-          \#{link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
-        - else
-          = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
-          |
-          \#{link_to "Login", new_user_session_path, :class => 'navbar-link'}
-
-
-    .row-fluid
-      .span10.offset1
-        .hero-unit.text-center
-          %h1
-            = link_to 'Translations', topics_path
-          %h3
-            Translations for your practice
+  = render 'layouts/nav'
+  .row-fluid
+    .span10.offset1
+      .hero-unit.text-center
+        %h1
+          = link_to 'Translations', topics_path
+        %h3
+          Translations for your practice
 
 .text-center
   - if notice
