@@ -1,7 +1,6 @@
 .text-center
-  %p
-    %strong
-      = @topic.name
+  %h1
+    = @topic.name
   = link_to 'Edit', edit_topic_path(@topic)
   |
   \#{link_to 'Back', topics_path}

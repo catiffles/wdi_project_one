@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @phrase = Phrase.new(list: @list)
-    @phrases = @list.phrases
+    @phrases = @list.phrases.order("id ASC")
   end
 
   def create

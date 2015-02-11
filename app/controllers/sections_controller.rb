@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
     @topic = @section.topic
     @list = List.new(section_id: @section)
     @section = Section.find(params[:id])
-    @lists = @section.lists
+    @lists = @section.lists.order("id ASC")
   end
 
   def create

@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order("name ASC")
   end
 
   def new
@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @section = Section.new(topic_id: @topic)
-    @sections = @topic.sections
+    @sections = @topic.sections.order("id ASC")
   end
 
   def create
