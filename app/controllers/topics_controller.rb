@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_filter :authenticate_user!, only: [:create, :update, :destroy]
+
   def index
     @topics = Topic.all.order("name ASC")
   end
@@ -15,6 +17,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
 
     if @topic.save
       flash[:success] = 'Topic successfully created'
@@ -30,6 +33,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
+    @topic.user = current_user
 
     if @topic.update_attributes(topic_params)
       flash[:success] = 'Topic successfully updated'
@@ -40,7 +44,9 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    Topic.find(params[:id]).destroy
+    @topic = Topic.find(params[:id])
+    @topic.user = current_user
+    @topic.destroy
     flash[:success] = 'Topic successfully deleted'
     redirect_to topics_path
   end

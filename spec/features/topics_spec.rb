@@ -15,7 +15,7 @@ RSpec.feature 'Managing topics' do
     visit '/topics/new'
 
     fill_in 'Name', with: 'Cows'
-    click_on 'Create Topic'
+    click_on 'Save'
 
     expect(page).to have_content('Cows')
   end
@@ -34,7 +34,7 @@ RSpec.feature 'Managing topics' do
     visit "topics/#{topic.id}/edit"
 
     fill_in 'Name', with: 'Cats'
-    click_on 'Update Topic'
+    click_on 'Save'
 
     expect(page).to have_content('Cats')
   end
