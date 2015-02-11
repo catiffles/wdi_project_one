@@ -3,6 +3,12 @@ Ugly Welcome Page
 .text-center
   .p
     Hello Sheep!
-  = link_to "Sign Up", new_user_registration_path
-  or
-  = link_to "Login", new_user_session_path
+  -if user_signed_in?
+    .p
+      You're already logged in!
+      Click below to view your translations!
+    = link_to 'Enter', topics_path, class: 'btn btn-primary'
+  -else
+    = link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'
+    or
+    = link_to "Login", new_user_session_path, class: 'btn btn-primary'
