@@ -1,7 +1,7 @@
 class PhrasesController < ApplicationController
+  before_action :set_phrase, only: [:show, :edit, :update, :destroy]
 
   def show
-    @phrase = Phrase.find(params[:id])
   end
 
   def create
@@ -17,11 +17,9 @@ class PhrasesController < ApplicationController
   end
 
   def edit
-    @phrase = Phrase.find(params[:id])
   end
 
   def update
-    @phrase = Phrase.find(params[:id])
     if @phrase.update_attributes(phrase_params)
       @list = @phrase.list
       redirect_to list_path(@list)
@@ -31,13 +29,16 @@ class PhrasesController < ApplicationController
   end
 
   def destroy
-    @phrase = Phrase.find(params[:id])
     @phrase.destroy
     @list = @phrase.list
     redirect_to list_path(@list)
   end
 
   private
+
+  def set_phrase
+    @phrase = Phrase.find(params[:id])
+  end
 
   def phrase_params
     params.require(:phrase).permit(:english, :traditional, :simplified, :pinyin).merge(user_id: current_user.id)

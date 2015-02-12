@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
     @topics = Topic.all.order("name ASC")
@@ -10,7 +11,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
     @section = Section.new(topic_id: @topic)
     @sections = @topic.sections.order("id ASC")
   end
@@ -28,11 +28,9 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
   end
 
   def update
-    @topic = Topic.find(params[:id])
     @topic.user = current_user
 
     if @topic.update_attributes(topic_params)
@@ -44,7 +42,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
     @topic.user = current_user
     @topic.destroy
     flash[:success] = 'Topic successfully deleted'
@@ -52,6 +49,10 @@ class TopicsController < ApplicationController
   end
 
   private
+
+  def set_topic
+    @topic = Topic.find(params[:id])
+  end
 
   def topic_params
     params.require(:topic).permit(:name).merge(user_id: current_user.id)

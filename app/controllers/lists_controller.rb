@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def show
-    @list = List.find(params[:id])
     @phrase = Phrase.new(list: @list)
     @phrases = @list.phrases.order("id ASC")
   end
@@ -18,11 +18,9 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list = List.find(params[:id])
   end
 
   def update
-    @list = List.find(params[:id])
     @section = @list.section
     if @list.update(list_params)
       redirect_to section_path(@section)
@@ -32,12 +30,15 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:id])
     @list.destroy
     redirect_to :back
   end
 
   private
+
+  def set_list
+    @list = List.find(params[:id])
+  end
 
   def list_params
     params.require(:list).permit(:name).merge(user_id: current_user.id)
