@@ -40,7 +40,7 @@ class PhrasesController < ApplicationController
   private
 
   def phrase_params
-    params.require(:phrase).permit(:english, :traditional, :simplified, :pinyin)
+    params.require(:phrase).permit(:english, :traditional, :simplified, :pinyin).merge(user_id: current_user.id)
   end
 
 end

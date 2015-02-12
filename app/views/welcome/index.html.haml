@@ -1,6 +1,8 @@
-Ugly Welcome Page
 
 .text-center
+  .p
+    Ugly Welcome Page
+  %br
   .p
     Hello Sheep!
   -if user_signed_in?
@@ -12,3 +14,18 @@ Ugly Welcome Page
     = link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'
     or
     = link_to "Login", new_user_session_path, class: 'btn btn-primary'
+%br
+%br
+.p
+  Stay tuned for updates in the near future! I hope to have more functionality soon so keep refreshing those pages! :P
+
+%br
+%br
+.p
+  And I swear this welcome page won't be so lackluster forever!
+
+#footer
+  .p
+    If you have any questions, feel free to contact me at
+    %a{:href => "mailto:susan@marpy.net"} susan@marpy.net
+

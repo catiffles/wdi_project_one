@@ -44,7 +44,7 @@ class SectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:section).permit(:name)
+    params.require(:section).permit(:name).merge(user_id: current_user.id)
   end
 
 end
